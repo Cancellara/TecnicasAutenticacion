@@ -8,11 +8,16 @@ class AdminController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', 'admin']);
+        //$this->middleware(['auth', 'admin']);
     }
 
     public function index()
     {
-        return view('Admin/Dashboard');
+        return view('Admin/dashboard');
+    }
+
+    public function event()
+    {
+        return view('Admin/event');
     }
 }
