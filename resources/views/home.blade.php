@@ -15,6 +15,9 @@
                     @endif
 
                     You are logged in!
+                    @admin
+                        <p><a href = "{{route('admin_dashboard')}}">Ir a admin dashboard</a></p>
+                    @endadmin
                 </div>
             </div>
         </div>
