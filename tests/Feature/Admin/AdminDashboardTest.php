@@ -15,12 +15,8 @@ class AdminDashboardTest extends TestCase
     /** @test     */
     function admins_can_visit_the_admin_dashboard()
     {
-        $admin = factory(User::class)
-            ->create([
-                'admin' => true
-            ]);
 
-        $this->actingAs($admin)
+        $this->actingAs($this->createAdmin())
             ->get(route('admin_dashboard'))
             ->assertStatus(200)
             ->assertSee('Admin Dashboard');
@@ -30,11 +26,7 @@ class AdminDashboardTest extends TestCase
     /** @test     */
     function non_admin_users_cannot_visit_the_admin_dashboard() {
         //$this->markTestIncomplete();
-        $user = factory(User::class)->create([
-            'admin' => false
-        ]);
-
-        $this->actingAs($user)
+        $this->actingAs($this->createUser())
             ->get(route('admin_dashboard'))
             ->assertStatus(403)
             ->assertSee('Prohibido');
@@ -52,12 +44,7 @@ class AdminDashboardTest extends TestCase
     /** @test     */
     function admins_can_visit_the_admin_event()
     {
-        $admin = factory(User::class)
-            ->create([
-                'admin' => true
-            ]);
-
-        $this->actingAs($admin)
+        $this->actingAs($this->createAdmin())
             ->get(route('admin_event'))
             ->assertStatus(200)
             ->assertSee('Admin Event');
@@ -67,11 +54,7 @@ class AdminDashboardTest extends TestCase
     /** @test     */
     function non_admin_users_cannot_visit_the_admin_event() {
         //$this->markTestIncomplete();
-        $user = factory(User::class)->create([
-            'admin' => false
-        ]);
-
-        $this->actingAs($user)
+        $this->actingAs($this->createUser())
             ->get(route('admin_event'))
             ->assertStatus(403)
             ->assertSee('Prohibido');
