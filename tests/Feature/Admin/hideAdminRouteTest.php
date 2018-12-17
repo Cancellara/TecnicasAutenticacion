@@ -14,7 +14,7 @@ class hideAdminRouteTest extends TestCase
     {
         $this->get('admin/invalid-url')
             ->assertStatus(302)
-            ->assertRedirect(route('login'));
+            ->assertRedirect(route('admin.login'));
     }
 
     /** @test */
@@ -30,6 +30,6 @@ class hideAdminRouteTest extends TestCase
     {
         $this->post('admin/invalid-url')
             ->assertStatus(302)
-            ->assertRedirect(route('login'));
+            ->assertRedirect(route('admin.login'));
     }
 }
