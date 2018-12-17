@@ -13,7 +13,7 @@ class DashboardTest extends TestCase
     /** @test     */
     function it_shows_dashboard_page_to_authenticated_users()
     {
-        $this->actingAs($this->createAdmin())
+        $this->actingAsUser()
             ->get(route('home'))
             ->assertStatus(200)
             ->assertSee('Dashboard');

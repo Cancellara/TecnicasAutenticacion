@@ -10,16 +10,14 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class UserTest extends TestCase
 {
     /** @test  */
-    public function it_test_that_an_user_can_be_an_admin()
+    public function it_test_that_an_user_can_not_be_an_admin()
     {
-        $user = factory(User::class)->create([
-            'admin' => false,
-        ]);
+        $user = factory(User::class)->create();
 
         $this->assertFalse($user->isAdmin());
 
-        $user->admin=true;
+        //$user->admin=true;
 
-        $this->assertTrue($user->isAdmin());
+        //$this->assertTrue($user->isAdmin());
     }
 }

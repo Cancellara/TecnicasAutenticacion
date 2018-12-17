@@ -20,7 +20,7 @@ class hideAdminRouteTest extends TestCase
     /** @test */
     function it_displays_404s_when_admins_visit_invalid_url()
     {
-        $this->actingAs($this->createAdmin())
+        $this->actingAsAdmin()
             ->get('admin/invalid_url')
             ->assertStatus(404);
     }
