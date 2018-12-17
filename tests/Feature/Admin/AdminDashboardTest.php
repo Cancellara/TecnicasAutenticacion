@@ -1,5 +1,6 @@
 <?php
 namespace Tests\Feature\Admin;
+use App\Admin;
 use App\User;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -10,6 +11,7 @@ class AdminDashboardTest extends TestCase
     function admins_can_visit_the_admin_dashboard()
     {
         $this->withoutExceptionHandling();
+        //dd(factory(Admin::class)->create());
         $this->actingAsAdmin()
             ->get(route('admin_dashboard'))
             ->assertStatus(200)
